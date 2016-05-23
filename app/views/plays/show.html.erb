@@ -1,5 +1,8 @@
 <h2><%= @play.title %></h2>
 <h3><%= @play.director %></h3>
+<% if @play.category %>
+  <h4><%= @play.category.name %></h4>
+<% end %>
 <p><%= @play.description %></p>
 
 <% if user_signed_in? && current_user.id == @play.user_id %>
