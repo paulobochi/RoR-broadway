@@ -1,1 +1,3 @@
-<h1>It's up and runing!</h1>
+<% @plays.each do |play| %>
+  <h2><%= link_to play.title, play_path(play) %></h2>
+<% end %>

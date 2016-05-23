@@ -1,12 +1,14 @@
 class PlaysController < ApplicationController
 
   before_action :find_play, only: [:show, :edit, :update, :destroy]
+
   def index
+    @plays = Play.all.order('created_at DESC')
   end
 
   def show
   end
-  
+
   def new
     @play = Play.new
   end
@@ -14,7 +16,7 @@ class PlaysController < ApplicationController
   def create
     @play = Play.new(play_params)
     if @play.save
-      redirect_to play_path(@play)
+      redirect_to root_path
     else
       redner 'new'
     end
@@ -36,7 +38,7 @@ class PlaysController < ApplicationController
   end
 
   def find_play
-    @play = Play.find(params(:id))
+    @play = Play.find(params[:id])
   end
 
 end
