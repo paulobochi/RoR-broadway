@@ -1,14 +1,21 @@
-<h1 class='current_category'><%= params[:category] %></h1>
-<% if @plays.count == 0 %>
-  <h3>There are no plays in this category</h3>
-<% else %>
-  <div class='row'>
-    <% @plays.each do |play| %>
-      <div class='col-md-3'>
-        <%= link_to play_path(play) do %>
-          <%= image_tag play.play_img.url(:medium), class: 'img-responsive play-image' %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<section class='plays'>
+  <h1 class='current_category'><%= params[:category] %></h1>
+  <% if @plays.count == 0 %>
+    <h3>There are no plays in this category</h3>
+  <% else %>
+    <div class='row'>
+      <% @plays.each do |play| %>
+        <div class='col-md-2 col-sm-3 col-xs-12'>
+          <%= link_to play_path(play) do %>
+            <div class='play-item'>
+              <%= image_tag play.play_img.url, class: 'img-responsive play-image' %>
+              <div class='play-title'>
+                <%= link_to play.title, play_path(play) %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

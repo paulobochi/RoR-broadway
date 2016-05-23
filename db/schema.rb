@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523153050) do
+ActiveRecord::Schema.define(version: 20160523182408) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160523153050) do
     t.string   "play_img_content_type"
     t.integer  "play_img_file_size"
     t.datetime "play_img_updated_at"
+    t.string   "trailer_url"
   end
 
   add_index "plays", ["category_id"], name: "index_plays_on_category_id"

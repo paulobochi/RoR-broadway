@@ -1,4 +1,19 @@
 <div class='review'>
-  <p><%= review.rating %></p>
+  <select class="rating">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
   <p class='review-comment'><%= review.comment %></p>
 </div>
+
+<script type="text/javascript">
+   $(function() {
+      $('.rating').barrating({
+        theme: 'fontawesome-stars',
+        readonly: true
+      });
+   });
+</script>

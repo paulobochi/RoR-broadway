@@ -1,7 +1,20 @@
 <%= simple_form_for([@play, @play.reviews.build]) do |f| %>
-  <div id='rating-form'>
-    <%= f.input :rating %>
-  </div>
+  <label>Rating</label>
+  <select id="rating" name='review[rating]'>
+    <option value="1" data-html="bad">1</option>
+    <option value="2" data-html="regular">2</option>
+    <option value="3" data-html="good">3</option>
+    <option value="4" data-html="better">4</option>
+    <option value="5" data-html="best">5</option>
+  </select>
   <%= f.input :comment %>
   <%= f.button :submit, class: 'btn btn-default' %>
 <% end %>
+
+<script type="text/javascript">
+   $(function() {
+      $('#rating').barrating({
+        theme: 'fontawesome-stars'
+      });
+   });
+</script>

@@ -2,19 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.play-image {
-  height: 350px;
-  width: 250px;
-  margin: 0 auto;
+.plays {
+  .play-item {
+    text-align: center;
+    .play-image {
+      width: 150px;
+      height: 230px;
+      margin: 0 auto;
+    }
+    .play-title {
+      font-weight: bolder;
+      height: 50px;
+    }
+  }
 }
 
 .play-title {
   margin-top: 5px;
   font-weight: bolder;
-}
-
-.play-director {
-}
-
-.play-category {
 }

@@ -1,8 +1,12 @@
 <div class='row'>
-  <div class='col-sm-4'>
-    <%= image_tag @play.play_img.url, class: 'img-responsive' %>
+  <div class='col-lg-6 col-md-7 text-center'>
+    <% if !@play.trailer_url.blank? %>
+      <iframe src="<%= @play.trailer_url %>?autoplay=false&width=480" width="480" height="270" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="no" scrolling="no"></iframe>
+    <% else %>
+      <%= image_tag @play.play_img.url, class: 'img-responsive play-image' %>
+    <% end %>
   </div>
-  <div class='col-sm-8'>
+  <div class='col-lg-6 col-md-5'>
     <div class='play-info'>
       <h2 class='play-title'><%= @play.title %></h2>
       <h3 class='play-director'><em>From </em><b><%= @play.director %></b></h3>
@@ -13,7 +17,6 @@
     </div>
   </div>
 </div>
-
 
 <div class='reviews'>
   <h1>Reviews</h1>
