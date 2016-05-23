@@ -2,5 +2,7 @@
 <h3><%= @play.director %></h3>
 <p><%= @play.description %></p>
 
-<%= link_to 'Edit', edit_play_path(@play) %>
-<%= link_to 'Destroy', play_path(@play), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if user_signed_in? && current_user.id == @play.user_id %>
+  <%= link_to 'Edit', edit_play_path(@play) %>
+  <%= link_to 'Destroy', play_path(@play), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

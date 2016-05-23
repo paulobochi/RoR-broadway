@@ -1,12 +1,14 @@
 class PlaysController < ApplicationController
 
-  before_action :find_play, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :find_play, only: [:edit, :update, :destroy]
 
   def index
     @plays = Play.all.order('created_at DESC')
   end
 
   def show
+    @play = Play.find(params[:id])
   end
 
   def new
@@ -45,7 +47,7 @@ class PlaysController < ApplicationController
   end
 
   def find_play
-    @play = Play.find(params[:id])
+    @play = current_user.plays.find(params[:id])
   end
 
 end
