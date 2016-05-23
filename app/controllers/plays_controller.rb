@@ -4,7 +4,15 @@ class PlaysController < ApplicationController
   before_action :find_play, only: [:edit, :update, :destroy]
 
   def index
-    @plays = Play.all.order('created_at DESC')
+    if (params[:category].blank?)
+      @plays = Play.all.order('created_at DESC')
+    else
+      category = Category.find_by(name: params[:category])
+      @plays = []
+      if !category.blank?
+        @plays = Play.where(category_id: category.id).order('created_at DESC')
+      end
+    end
   end
 
   def show
@@ -47,7 +55,7 @@ class PlaysController < ApplicationController
   private
 
   def play_params
-    params.require(:play).permit(:title, :description, :director)
+    params.require(:play).permit(:title, :description, :director, :category_id, :play_img)
   end
 
   def find_play
