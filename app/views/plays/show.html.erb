@@ -14,9 +14,17 @@
   </div>
 </div>
 
+
+<div class='reviews'>
+  <h1>Reviews</h1>
+  <%= render @play.reviews %>
+  <%= link_to 'Add Review', new_play_review_path(@play), class: 'btn btn-default' %>
+</div>
+
+
 <% if user_signed_in? && current_user.id == @play.user_id %>
   <div class='links btn-group'>
-    <%= link_to 'Edit', edit_play_path(@play), class: 'btn btn-default' %>
-    <%= link_to 'Destroy', play_path(@play), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+    <%= link_to 'Edit', edit_play_path(@play), class: 'btn btn-link' %>
+    <%= link_to 'Destroy', play_path(@play), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %>
   </div>
 <% end %>
