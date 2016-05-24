@@ -1,19 +1,14 @@
 <div class='review'>
-  <select class="rating">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
+  <div class='review-rating' data-score="<%= review.rating %>"></div>
   <p class='review-comment'><%= review.comment %></p>
 </div>
 
-<script type="text/javascript">
-   $(function() {
-      $('.rating').barrating({
-        theme: 'fontawesome-stars',
-        readonly: true
-      });
-   });
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/raty/lib/images'
+  });
 </script>

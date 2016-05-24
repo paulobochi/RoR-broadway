@@ -9,10 +9,12 @@
   <div class='col-lg-6 col-md-5'>
     <div class='play-info'>
       <h2 class='play-title'><%= @play.title %></h2>
-      <h3 class='play-director'><em>From </em><b><%= @play.director %></b></h3>
+      <h3 class='play-director'><em>From: </em><b><%= @play.director %></b></h3>
       <% if @play.category %>
         <h4 class='play-category'><%= @play.category.name %></h4>
       <% end %>
+      <div class='play-average-rating' data-score="<%= @average_review %>"></div>
+      <div class='play-reviews-count'></div>
       <p class='play-description'><%= @play.description %></p>
     </div>
   </div>

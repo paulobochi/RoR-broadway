@@ -17,6 +17,11 @@ class PlaysController < ApplicationController
 
   def show
     @play = Play.find(params[:id])
+    if @play.review.blank?
+      @average_review = 0
+    else
+      @average_review = @play.reviews.average(:rating).round(2)
+    end
   end
 
   def new

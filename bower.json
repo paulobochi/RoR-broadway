@@ -4,6 +4,6 @@
   "main": "",
   "private": true,
   "dependencies": {
-    "jquery.rateit": "^1.0.23"
+    "raty": "^2.7.0"
   }
 }
